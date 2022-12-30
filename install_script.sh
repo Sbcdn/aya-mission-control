@@ -8,12 +8,12 @@ teleFalg="$1"
 teleFlagValue="--remote-hosted"
 
 echo "----------- Installing grafana -----------"
-
+sudo -S apt-get install -y adduser libfontconfig1
 if [[ ! -f "${HOME}"/grafana_6.7.2_amd64.deb ]]; then
 	wget https://dl.grafana.com/oss/release/grafana_6.7.2_amd64.deb
 fi
 sudo -S dpkg -i "${HOME}"/grafana_6.7.2_amd64.deb
-sudo -S apt-get install -y adduser libfontconfig1
+
 
 echo "----------- Installing Go -----------"
 sudo apt update -y && sudo apt install golang-go -y
