@@ -46,7 +46,7 @@ if [[ -d "${HOME}"/aya-mission-control ]]; then
 fi
 
 git clone https://github.com/Sbcdn/aya-mission-control.git
-
+sudo cp "${HOME}"/aya-mission-control/config.toml /opt/aya/amc/config.toml
 cd $HOME
 
 if [ "$teleFalg" != "$teleFlagValue" ];
@@ -54,7 +54,7 @@ then
 	echo "----------- Installing telegraf -----------------"
 	
 	sudo -S apt-get update && sudo apt-get install telegraf
-	sudo cp "${HOME}"/aya-mission-control//telegraf.conf /etc/telegraf/
+	sudo cp "${HOME}"/aya-mission-control/telegraf.conf /etc/telegraf/
 	sudo systemctl enable telegraf.service
 	sudo systemctl start telegraf.service
 	#sudo -S service telegraf start
