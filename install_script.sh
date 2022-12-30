@@ -41,12 +41,6 @@ echo "--------- Cloning cosmos-validator-mission-control -----------"
 
 cd $HOME
 
-if [[ -d "${HOME}"/aya-mission-control ]]; then
-	rm -r ./aya-mission-control
-fi
-
-git clone https://github.com/Sbcdn/aya-mission-control.git
-
 if [[ ! -d /opt/aya/amc ]]; then
 	mkdir /opt/aya/amc
 fi
@@ -79,7 +73,7 @@ cd "${HOME}"/aya-mission-control/
 go build 
 #&& ./cosmos-validator-mission-control
 
-echo -e "-- Configuring systemd\n"
+echo -e "--------- Configuring systemd ---------\n"
 
 sudo ln -s "${HOME}"/aya-mission-control/cosmos-validator-mission-control /usr/local/bin/aya-mission-control >/dev/null 2>&1
 
@@ -99,6 +93,9 @@ LimitNOFILE=4096
 WantedBy=multi-user.target
 EOF
 
+echo -e "--------- Starting Aya Mission Control ---------\n"
 sudo systemctl daemon-reload
 sudo systemctl enable aya_mission_control
 sudo systemctl start aya_mission_control
+
+echo -e "--------- Successful ---------"
