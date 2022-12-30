@@ -9,11 +9,14 @@ teleFlagValue="--remote-hosted"
 
 echo "----------- Installing grafana -----------"
 
+if [[ ! -f "${HOME}"/grafana_6.7.2_amd64.deb ]]; then
+	wget https://dl.grafana.com/oss/release/grafana_6.7.2_amd64.deb
+fi
+sudo -S dpkg -i "${HOME}"/grafana_6.7.2_amd64.deb
 sudo -S apt-get install -y adduser libfontconfig1
 
-wget https://dl.grafana.com/oss/release/grafana_6.7.2_amd64.deb
-
-sudo -S dpkg -i grafana_6.7.2_amd64.deb
+echo "----------- Installing Go -----------"
+sudo apt update -y && sudo apt install golang-go -y
 
 echo "------ Starting grafana server using systemd --------"
 
@@ -36,11 +39,13 @@ sudo systemctl start influxdb.service
 
 echo "--------- Cloning cosmos-validator-mission-control -----------"
 
-cd go/src/github.com/cosmos-validator-mission-control
-git clone https://github.com/Sbcdn/aya-mission-control.git
+cd $HOME
 
-cd cosmos-validator-mission-control
-sudo cp telegraf.conf /etc/telegraf/
+if [[ -d "${HOME}"/aya-mission-control ]]; then
+	rm -r ./aya-mission-control
+fi
+
+git clone https://github.com/Sbcdn/aya-mission-control.git
 
 cd $HOME
 
@@ -49,6 +54,7 @@ then
 	echo "----------- Installing telegraf -----------------"
 	
 	sudo -S apt-get update && sudo apt-get install telegraf
+	sudo cp "${HOME}"/aya-mission-control//telegraf.conf /etc/telegraf/
 	sudo systemctl enable telegraf.service
 	sudo systemctl start telegraf.service
 	#sudo -S service telegraf start
@@ -64,12 +70,13 @@ curl "http://localhost:8086/query" --data-urlencode "q=CREATE DATABASE vcf"
 curl "http://localhost:8086/query" --data-urlencode "q=CREATE DATABASE telegraf"
 
 echo "------ Building and running the code --------"
-cd go/src/github.com/cosmos-validator-mission-control
+cd "${HOME}"/aya-mission-control/
 go build 
 #&& ./cosmos-validator-mission-control
 
 echo -e "-- Configuring systemd\n"
-sudo ln -s go/src/github.com/cosmos-validator-mission-control/cosmos-validator-mission-control /usr/local/bin/ayad >/dev/null 2>&1
+
+sudo ln -s "${HOME}"/aya-mission-control/cosmos-validator-mission-control /usr/local/bin/aya-mission-control >/dev/null 2>&1
 
 sudo tee /etc/systemd/system/aya_mission_control.service > /dev/null <<EOF
 [Unit]
@@ -78,7 +85,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart= cosmos-validator-mission-control
+ExecStart=aya-mission-control
 Restart=always
 RestartSec=3
 LimitNOFILE=4096
@@ -90,5 +97,3 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable aya_mission_control
 sudo systemctl start aya_mission_control
-
-

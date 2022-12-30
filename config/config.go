@@ -81,6 +81,7 @@ func ReadFromFile() (*Config, error) {
 	v := viper.New()
 	v.AddConfigPath(".")
 	v.AddConfigPath("./config/")
+	v.AddConfigPath("./aya-mission-control/")
 	v.SetConfigName("config")
 	if err := v.ReadInConfig(); err != nil {
 		log.Fatalf("error while reading config.toml: %v", err)
