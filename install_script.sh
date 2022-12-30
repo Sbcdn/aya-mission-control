@@ -37,7 +37,7 @@ sudo systemctl start influxdb.service
 echo "--------- Cloning cosmos-validator-mission-control -----------"
 
 cd go/src/github.com/cosmos-validator-mission-control
-git clone https://github.com/Chainflow/cosmos-validator-mission-control.git
+git clone https://github.com/Sbcdn/aya-mission-control.git
 
 cd cosmos-validator-mission-control
 sudo cp telegraf.conf /etc/telegraf/
