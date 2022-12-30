@@ -46,6 +46,11 @@ if [[ -d "${HOME}"/aya-mission-control ]]; then
 fi
 
 git clone https://github.com/Sbcdn/aya-mission-control.git
+
+if [[ ! -d /opt/aya/amc ]]; then
+	mkdir /opt/aya/amc
+fi
+
 sudo cp "${HOME}"/aya-mission-control/config.toml /opt/aya/amc/config.toml
 cd $HOME
 
