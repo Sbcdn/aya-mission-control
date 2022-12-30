@@ -1,54 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_INFLUXDBTELEGRAF",
-      "label": "InfluxDBTelegraf",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
-    },
-    {
-      "name": "DS_INFLUXDBVCF",
-      "label": "InfluxDBVCF",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "6.6.1"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "influxdb",
-      "name": "InfluxDB",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -66,13 +16,13 @@
   "editable": true,
   "gnetId": 928,
   "graphTooltip": 1,
-  "id": null,
-  "iteration": 1587652354382,
+  "id": 3,
+  "iteration": 1672407087761,
   "links": [],
   "panels": [
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -86,7 +36,7 @@
     },
     {
       "columns": [],
-      "datasource": "${DS_INFLUXDBVCF}",
+      "datasource": "InfluxDBVCF",
       "fontSize": "90%",
       "gridPos": {
         "h": 4,
@@ -95,7 +45,6 @@
         "y": 1
       },
       "id": 62072,
-      "options": {},
       "pageSize": null,
       "pluginVersion": "6.6.2",
       "showHeader": true,
@@ -336,7 +285,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDBVCF}",
+      "datasource": "InfluxDBVCF",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -368,7 +317,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -440,7 +388,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDBVCF}",
+      "datasource": "InfluxDBVCF",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -472,7 +420,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -537,7 +484,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -558,7 +505,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDBVCF}",
+      "datasource": "InfluxDBVCF",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -590,7 +537,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -661,7 +607,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDBVCF}",
+      "datasource": "InfluxDBVCF",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -693,7 +639,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -764,7 +709,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDBVCF}",
+      "datasource": "InfluxDBVCF",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -796,7 +741,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -862,7 +806,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDBVCF}",
+      "datasource": "InfluxDBVCF",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -894,7 +838,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -966,7 +909,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_INFLUXDBVCF}",
+      "datasource": "InfluxDBVCF",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -998,7 +941,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": " Connected",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1057,7 +999,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1078,7 +1020,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "editable": true,
       "error": false,
       "format": "percent",
@@ -1113,7 +1055,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1210,7 +1151,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(245, 54, 54, 0.9)"
       ],
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "editable": true,
       "error": false,
       "format": "percent",
@@ -1245,7 +1186,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1326,7 +1266,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1465,7 +1405,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1613,7 +1553,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1816,7 +1756,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2012,7 +1952,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2208,7 +2148,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDBTELEGRAF}",
+      "datasource": "InfluxDBTelegraf",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2412,6 +2352,7 @@
       {
         "allFormat": "glob",
         "current": {
+          "selected": false,
           "text": "InfluxDBTelegraf",
           "value": "InfluxDBTelegraf"
         },
@@ -2497,11 +2438,15 @@
       },
       {
         "allValue": null,
-        "current": {},
-        "datasource": "${DS_INFLUXDBTELEGRAF}",
+        "current": {
+          "text": "tp-MS-7B86",
+          "value": "tp-MS-7B86"
+        },
+        "datasource": "InfluxDBTelegraf",
         "definition": "",
         "hide": 0,
         "includeAll": false,
+        "index": -1,
         "label": "Server",
         "multi": false,
         "name": "server",
@@ -2519,11 +2464,16 @@
       },
       {
         "allValue": null,
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": "$datasource",
         "definition": "",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "Mountpoint",
         "multi": true,
         "name": "mountpoint",
@@ -2541,11 +2491,16 @@
       },
       {
         "allValue": null,
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": "$datasource",
         "definition": "",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "CPU",
         "multi": true,
         "name": "cpu",
@@ -2563,11 +2518,16 @@
       },
       {
         "allValue": null,
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": "$datasource",
         "definition": "",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "Disk",
         "multi": true,
         "name": "disk",
@@ -2585,11 +2545,16 @@
       },
       {
         "allValue": null,
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": "$datasource",
         "definition": "",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "Network interface",
         "multi": true,
         "name": "netif",
@@ -2639,5 +2604,8 @@
   "timezone": "browser",
   "title": "Summary",
   "uid": "bnqSyNrZz",
+  "variables": {
+    "list": []
+  },
   "version": 2
 }

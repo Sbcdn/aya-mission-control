@@ -17,7 +17,7 @@
   "gnetId": 928,
   "graphTooltip": 1,
   "id": 1,
-  "iteration": 1614924372890,
+  "iteration": 1672407119747,
   "links": [],
   "panels": [
     {
@@ -3575,10 +3575,8 @@
       {
         "allValue": null,
         "current": {
-          "isNone": true,
-          "selected": false,
-          "text": "None",
-          "value": ""
+          "text": "tp-MS-7B86",
+          "value": "tp-MS-7B86"
         },
         "datasource": "InfluxDBTelegraf",
         "definition": "",
@@ -3745,5 +3743,5 @@
   "variables": {
     "list": []
   },
-  "version": 15
+  "version": 2
 }
