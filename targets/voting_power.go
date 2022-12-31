@@ -39,11 +39,11 @@ func GetValidatorVotingPower(ops HTTPOptions, cfg *config.Config, c client.Clien
 	}
 	log.Printf("VOTING POWER: %s", vp)
 
-	_ = writeToInfluxDb(c, bp, "vcf_voting_power", map[string]string{}, map[string]interface{}{"power": vp + "muon"})
+	_ = writeToInfluxDb(c, bp, "vcf_voting_power", map[string]string{}, map[string]interface{}{"power": vp + "uswmt"})
 
-	votingPower, err := strconv.Atoi(vp)
+	votingPower, err := strconv.ParseFloat(v, 64)
 	if err != nil {
-		log.Println("Error wile converting string to int of voting power \t", err)
+		log.Println("Error wile converting string to float of voting power \t", err)
 		return
 	}
 
