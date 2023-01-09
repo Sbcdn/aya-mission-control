@@ -2,17 +2,15 @@
 
 set -e
 
-cd $HOME
-
 teleFalg="$1"
 teleFlagValue="--remote-hosted"
 
 echo "----------- Installing grafana -----------"
 sudo -S apt-get install -y adduser libfontconfig1
-if [[ ! -f "${HOME}"/grafana_6.7.2_amd64.deb ]]; then
+if [[ ! -f "${PWD}"/grafana_6.7.2_amd64.deb ]]; then
 	wget https://dl.grafana.com/oss/release/grafana_6.7.2_amd64.deb
 fi
-sudo -S dpkg -i "${HOME}"/grafana_6.7.2_amd64.deb
+sudo -S dpkg -i "${PWD}"/grafana_6.7.2_amd64.deb
 
 
 echo "----------- Installing Go -----------"
@@ -23,8 +21,6 @@ echo "------ Starting grafana server using systemd --------"
 sudo -S systemctl daemon-reload
 sudo -S systemctl enable grafana-server
 sudo -S systemctl start grafana-server
-
-cd $HOME
 
 echo "----------- Installing Influx -----------"
 
@@ -39,21 +35,18 @@ sudo systemctl start influxdb.service
 
 echo "--------- Cloning cosmos-validator-mission-control -----------"
 
-cd $HOME
-
 if [[ ! -d /opt/aya/amc ]]; then
 	mkdir /opt/aya/amc
 fi
 
-sudo cp "${HOME}"/aya-mission-control/config.toml /opt/aya/amc/config.toml
-cd $HOME
+sudo cp "${PWD}"/config.toml /opt/aya/amc/config.toml
 
 if [ "$teleFalg" != "$teleFlagValue" ];
 then 
 	echo "----------- Installing telegraf -----------------"
 	
 	sudo -S apt-get update && sudo apt-get install telegraf
-	sudo cp "${HOME}"/aya-mission-control/telegraf.conf /etc/telegraf/
+	sudo cp "${PWD}"/telegraf.conf /etc/telegraf/
 	sudo systemctl enable telegraf.service
 	sudo systemctl start telegraf.service
 	#sudo -S service telegraf start
@@ -68,14 +61,12 @@ curl "http://localhost:8086/query" --data-urlencode "q=CREATE DATABASE vcf"
 
 curl "http://localhost:8086/query" --data-urlencode "q=CREATE DATABASE telegraf"
 
-echo "------ Building and running the code --------"
-cd "${HOME}"/aya-mission-control/
-go build 
-#&& ./cosmos-validator-mission-control
+echo "------ Building the code --------"
+go build -o /opt/aya/amc/aya-mission-control
 
 echo -e "--------- Configuring systemd ---------\n"
 
-sudo ln -s "${HOME}"/aya-mission-control/cosmos-validator-mission-control /usr/local/bin/aya-mission-control >/dev/null 2>&1
+sudo ln -s /opt/aya/amc/aya-mission-control /usr/local/bin/aya-mission-control >/dev/null 2>&1
 
 sudo tee /etc/systemd/system/aya_mission_control.service > /dev/null <<EOF
 [Unit]
