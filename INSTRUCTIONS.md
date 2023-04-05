@@ -51,9 +51,9 @@ Grafana will be running on port :3000 (ex:: https://localhost:3000)
 
 ```sh
 $ cd $HOME
-$ wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
-$ source /etc/lsb-release
-$ echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+$ wget -q https://repos.influxdata.com/influxdata-archive_compat.key
+$ echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null
+$ echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list
 ```
 
 Start influxDB
